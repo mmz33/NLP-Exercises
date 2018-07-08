@@ -1,0 +1,47 @@
+			20 newsgroups dataset
+			---------------------
+
+This  is  a  collection  of  about  20,000  UseNet  postings  from  20
+newsgroups,  gathered by Ken  Lang at  CMU in  the mid-90's.   In this
+directory you  will find the  training set (20news.tr), the  test set,
+(20news.te)  and  a vocabulary  file  (20news.voc).  The training  set
+consists  of  the  first  80%   of  the  messages  of  each  group  in
+chronological order.  Both the  training and test  set files  have the
+same  format,   with  each  line  representing  a   document.  In  the
+preprocessing only  the subject  and the text  of the mails  was taken
+into  account (i.e.  no  headers  and no  binary  data) and  stopwords
+(articles, prepositions, etc.) were  removed.  The first field in each
+line is the name of the  document (the path in the original data), the
+second one  the class of  the document, and  the rest of the  line are
+several pairs of the form  <word> <wordcount>.  The vocabulary file is
+simply a list  of words, ordered by importance  for the classification
+(information gain).
+
+The newsgroups present in the corpus (i.e. the classes) are:
+  alt.atheism
+  comp.graphics
+  comp.os.ms-windows.misc
+  comp.sys.ibm.pc.hardware
+  comp.sys.mac.hardware
+  comp.windows.x
+  misc.forsale
+  rec.autos
+  rec.motorcycles
+  rec.sport.baseball
+  rec.sport.hockey
+  sci.crypt
+  sci.electronics
+  sci.med
+  sci.space
+  soc.religion.christian
+  talk.politics.guns
+  talk.politics.mideast
+  talk.politics.misc
+  talk.religion.misc
+
+Note that in the test set the  labels are included in order to be able
+to   calculate  the   error  rate,   it  should   not   influence  the
+classification process!
+
+The original data can be found on this address:
+http://www.cs.umass.edu/~mccallum/data/20_newsgroups.tar.gz

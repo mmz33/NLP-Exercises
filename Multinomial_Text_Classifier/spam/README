@@ -1,0 +1,13 @@
+SpamAssassin Corpus
+-------------------
+
+This is a corpus collected by the SpamAssassin team in order to test spam
+filtering systems. The version provided in this archive consists of 5336
+documents for training and 743 documents for testing. The testing mails are
+from the "hard_ham", "easy_ham_2" and "spam_2" subcategories.  The corpus has
+been processed and coded in the same format as the "20 newsgroups" corpus, also
+available in our web page (including a README containing a short description of
+the format).
+
+The original data can be downloaded from
+http://spamassassin.apache.org/publiccorpus/
