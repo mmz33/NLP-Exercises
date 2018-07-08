@@ -31,6 +31,10 @@ class PhraseExt:
         return bp
 
     @staticmethod
+    def order_by_length(phrases_set):
+        return sorted(phrases_set, key=lambda x: x[0])
+
+    @staticmethod
     def extract(alignment, f_start, f_end, e_start, e_end, f_sent, e_sent):
         phrases = set()
 
@@ -61,27 +65,31 @@ class PhraseExt:
         return phrases
 
     @staticmethod
-    def order_by_length(phrases_set):
-        return sorted(phrases_set, key=lambda x: x[0])
+    def print_to_file(phrases_set, out_file):
+        for n, (_, a, b) in enumerate(phrases_set):
+            print('({x}) {f_sent} - {e_sent}'.format(x=n+1, f_sent=a, e_sent=b), file=out_file)
 
-    def simple_test(self):
-        e_sent = "michael assumes that he will stay in the house"
-        f_sent = "michael geht davon aus , dass er im haus bleibt"
-        alignment = [(0, 0), (1, 1), (1, 2), (1, 3), (2, 5), (3, 6), (4, 9), (5, 9), (6, 7), (7, 7), (8, 8)]
+    def print_result_to_file(self):
+        with open('./results.txt', 'w') as out_file:
+            out_file.write('*** Phrase extraction results ***\n\n')
+            for i in range(self.N):
+                out_file.write('Sentence {}\n'.format(i + 1))
+                out_file.write('-----------\n')
 
-        res = self.order_by_length(self.get_phrase_pairs(alignment, f_sent.split(), e_sent.split()))
+                phrases_pairs = self.get_phrase_pairs(self.alignments[i],
+                                                            self.parallel_corpus[i][0],
+                                                            self.parallel_corpus[i][1])
+                phrase_ext.print_to_file(self.order_by_length(phrases_pairs), out_file)
 
-        self.formatted_print(res)
-
-    @staticmethod
-    def formatted_print(phrases_set):
-        for i, (_, a, b) in enumerate(phrases_set):
-            print('({x}) {f_sent} - {e_sent}'.format(x=i+1, f_sent=a, e_sent=b))
+                out_file.write('\n\n')
 
 if __name__ == '__main__':
     phrase_ext = PhraseExt()
+    phrase_ext.print_result_to_file()
 
-    phrase_ext.simple_test()
+
+
+
 
 
 
