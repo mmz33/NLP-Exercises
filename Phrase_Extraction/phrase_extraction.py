@@ -19,6 +19,7 @@ class PhraseExt:
     def get_phrase_pairs(self, alignment, f_sent, e_sent):
         """
         This method runs the phrase extraction algorithm
+
         :param alignment: List of pair alignments
         :param f_sent: German sentence (source)
         :param e_sent: English sentence (target)
@@ -50,6 +51,7 @@ class PhraseExt:
     def order_by_length(phrases_set):
         """
         This method order the set of phrases pairs w.r.t the length of the source sentence
+
         :param phrases_set: Set of phrase pairs
         :return: Ordered set of phrase pairs
         """
@@ -60,6 +62,7 @@ class PhraseExt:
     def extract(alignment, f_start, f_end, e_start, e_end, f_sent, e_sent):
         """
         This method extracts the phrases from the minimal match given
+
         :param alignment: List of pair of alignments
         :param f_start: Start index of source word
         :param f_end:  End index of source word
@@ -113,6 +116,7 @@ class PhraseExt:
     def print_to_file(phrases_set, out_file):
         """
         This method prints a phrase pair in a formatted way into a given file
+
         :param phrases_set: Set of pair phrases
         :param out_file: File to write into it
         """

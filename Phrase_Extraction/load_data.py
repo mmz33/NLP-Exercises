@@ -7,6 +7,7 @@ alignment_path = './aligned_corpus/alignment'
 def get_alignments(N):
     """
     This method stores the alignments given in the data files
+    
     :param N: The number of sentences
     :return: List of pairs of index alignment between source and target sentences
     """
@@ -28,6 +29,7 @@ def get_alignments(N):
 def get_parallel_corpus():
     """
     This methods store the sentences pairs given in the data files
+
     :return: List of parallel source and target sentences
     """
 
